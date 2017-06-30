@@ -34,11 +34,7 @@ public class MondeV1 extends Monde {
 		this.ajouterActeur(t1);
 		this.ajouterActeur(t2);
 		
-		AgentContratPT AgentPT = new AgentContratPT();
-		AgentPT.addProd(pAmeriqueLatine);
-		AgentPT.addProd(p2);
-		AgentPT.addTrans(t1);
-		AgentPT.addTrans(t2);
+
 		
 		this.ajouterActeur(AgentPT);
 		
@@ -56,6 +52,17 @@ public class MondeV1 extends Monde {
 		this.ajouterActeur(d1);
 		this.ajouterActeur(d2);
 		
+		AgentContratTD AgentDT = new AgentContratTD();
+		AgentDT.addDistri(d1);
+		AgentDT.addDistri(d2);
+		AgentDT.addTransfo(t1);
+		AgentDT.addTransfo(t2);
+		
+		AgentContratPT AgentPT = new AgentContratPT();
+		AgentPT.addProd(pAmeriqueLatine);
+		AgentPT.addProd(p2);
+		AgentPT.addTrans(t1);
+		AgentPT.addTrans(t2);
 		
 		Marche MarcheDT = new Marche();
 		MarcheDT.getDistrib().add(d1);
