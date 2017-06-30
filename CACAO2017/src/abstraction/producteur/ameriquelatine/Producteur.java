@@ -26,7 +26,7 @@ public class Producteur implements IProducteur, Acteur, IContratProd  {
 	private Indicateur production;
 	private Journal journal;
 	public ArrayList<Devis> ldevis ;
-	private final static int PROD_MOY=20000 ;
+	private final static int PROD_MOY=32000 ;
 	
 	public Producteur(){
 		this.nom="Producteur AmeriqueLatine" ;
@@ -127,9 +127,15 @@ public class Producteur implements IProducteur, Acteur, IContratProd  {
 
 	public void qttLivrablePrix() {
 		int somme=0;
+		int r=0;
 		for (int i=0; i<this.ldevis.size(); i++){
 			if(this.ldevis.get(i).getDebut() >= Monde.LE_MONDE.getStep()-26 ){
 				somme+=this.ldevis.get(i).getQttLivrable();
+			}
+		}
+		for (int i=0; i<this.ldevis.size(); i++){
+			if(this.ldevis.get(i).getDebut() == Monde.LE_MONDE.getStep()){
+				r+=1;
 			}
 		}
 		for (int i=0; i<this.ldevis.size(); i++){
@@ -138,9 +144,14 @@ public class Producteur implements IProducteur, Acteur, IContratProd  {
 					this.ldevis.get(i).setQttLivrable(this.ldevis.get(i).getQttVoulue());
 			}
 				else{
-					this.ldevis.get(i).setQttLivrable(0);
+					if (PROD_MOY/this.ldevis.size()-somme>0){
+						this.ldevis.get(i).setQttLivrable((PROD_MOY/this.ldevis.size()-somme)/(3*r));
 			}
+					else {
+						this.ldevis.get(i).setQttLivrable(0);
+					}
 				this.ldevis.get(i).setPrix(0.9*this.coursActuel);
+			}
 			}
 		}	
 	}
