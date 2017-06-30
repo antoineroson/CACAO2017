@@ -134,7 +134,7 @@ public class Producteur implements IProducteur, Acteur, IContratProd  {
 		}
 		for (int i=0; i<this.ldevis.size(); i++){
 			if(this.ldevis.get(i).getDebut() == Monde.LE_MONDE.getStep()){
-				if (PROD_MOY/(2*this.ldevis.size())-somme > this.ldevis.get(i).getQttVoulue()){
+				if (PROD_MOY/this.ldevis.size()-somme > this.ldevis.get(i).getQttVoulue()){
 					this.ldevis.get(i).setQttLivrable(this.ldevis.get(i).getQttVoulue());
 			}
 				else{
