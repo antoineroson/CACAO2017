@@ -24,7 +24,8 @@ public class DistributeurUS implements IDistributeur, DistribClient, IDistriCont
 	public static double coefAleatoire=0.9+Math.random()*0.2;;
 	public static final double[] CONSO_PREVUE={80,80,80,120,80,80,80,180,80,80,80,80,80,80,80,80,80,80,80,80,80,150,80,80,80,260};
 	public static int tempsPerim=6;
-	public static double fondsMin=500000;
+	public static double fondsMin=500;
+	public static double stockMin=10000;
 	
 	private Gestion gestion;
 	private Demande demande;
@@ -78,6 +79,7 @@ public class DistributeurUS implements IDistributeur, DistribClient, IDistriCont
 	public void next(){
 		this.quantitee_Achetee.setValeur(this, 0);
 		this.quantitee_Vendue.setValeur(this, 0);
+		this.stock.setValeur(this, this.getGestion().sumStock());
 		for (int k=0;k<this.getGestion().getStock().size()-1;k++){
 			this.getGestion().setStock(k, this.getGestion().getStock().get(k+1));
 		}
@@ -190,7 +192,7 @@ public class DistributeurUS implements IDistributeur, DistribClient, IDistriCont
 
 	@Override
 	public double getMisEnVente() {
-		return this.getGestion().sumStock();
+		return this.getGestion().sumStock()-stockMin;
 	}
 
 
