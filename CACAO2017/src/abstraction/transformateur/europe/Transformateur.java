@@ -48,7 +48,7 @@ public class Transformateur implements ITransformateurMarcheDistrib, Acteur,ICon
 	private List<abstraction.transformateur.europe.Devis> devisDistributeur;
 
 	public static final int CACAO_NECESSAIRE = 30800; // Stock nécessaire par mois pour avoir 44000 chocolats
-	public static final int CHOCOLAT_NECESSAIRE = 90000; // Stock nécessaire par mois à vendre (calculé selon la demande européenne)
+	public static final int CHOCOLAT_NECESSAIRE = 70000; // Stock nécessaire par mois à vendre (calculé selon la demande européenne)
 	public static final double RATIO_CACAO_CHOCO=0.7; // Ratio de transformation entre le cacao et le chocolat
 	public static final double PART_MARCHE=0.4; // Part du marché mondiale que nous avons (les américains ont 1-PART_MARCHE)
 	public static final double PRIX_MIN=0.004; // Prix minimum de vente du chocolat sur le marché
@@ -57,7 +57,7 @@ public class Transformateur implements ITransformateurMarcheDistrib, Acteur,ICon
 	public static double[] CACAO_NECESSAIRE_PREVISION ={32,32,32,48,32,32,32,72,32,32,32,32,32,32,32,32,32,32,32,32,32,60,32,32,32,104};
 	public static final double RATIO_CONTRAT_PRODUCTEUR= 0.75; // Proportion de la quantité prévisionnelle minimum sur un an que l'on demande pour le contrat avec les producteurs
 	public static final double PART_CONTRAT_TD=0.7;
-	public static final double TAUX_ACCEPTATION_CONTRAT=0.8;
+	public static final double TAUX_ACCEPTATION_CONTRAT=0.01;
 	
 	//ces static sont celles correspondantes aux contrats distributeurs
 	public static double QD1=0;
