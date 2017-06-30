@@ -53,7 +53,7 @@ public class Transformateur implements ITransformateurMarcheDistrib, Acteur,ICon
 	public static final double PART_MARCHE=0.4; // Part du marché mondiale que nous avons (les américains ont 1-PART_MARCHE)
 	public static final double PRIX_MIN=0.004; // Prix minimum de vente du chocolat sur le marché
 	public static final double PRIX_MAX=0.008;
-	public static final int COUT_ANNEXE=10000000; //couts annexes comportant les salaires et tout les couts potentiels autre que le cacao
+	public static final int COUT_ANNEXE=1000000; //couts annexes comportant les salaires et tout les couts potentiels autre que le cacao
 	public static double[] CACAO_NECESSAIRE_PREVISION ={32,32,32,48,32,32,32,72,32,32,32,32,32,32,32,32,32,32,32,32,32,60,32,32,32,104};
 	public static final double RATIO_CONTRAT_PRODUCTEUR= 0.75; // Proportion de la quantité prévisionnelle minimum sur un an que l'on demande pour le contrat avec les producteurs
 	public static final double PART_CONTRAT_TD=0.7;
@@ -463,8 +463,8 @@ public class Transformateur implements ITransformateurMarcheDistrib, Acteur,ICon
 	 * @objectif: Passer à l'étape suivante en mettant à jour
 	 */
 	public void next(){
-		this.s.retraitChocolat(QD1/26+QD2/26);
-		this.compte.credit(PD1+PD2);
+		//this.s.retraitChocolat(QD1/26+QD2/26);
+		//this.compte.credit(PD1+PD2);
 		peremp.RetraitVente(quantiteVendue);
 		peremp.MiseAJourNext(this);
 		if (this.step%26==0){
@@ -474,9 +474,6 @@ public class Transformateur implements ITransformateurMarcheDistrib, Acteur,ICon
 		transformation();
 		CoutStock();
 		Miseajour();
-		
-		//System.out.println("notre compte est de : "+this.compte.getCompte());
-		//System.out.println(this.tresorerie.getValeur()+"est la veleur de la tresorerie en tant qu'indicateur");
 	}
 	
 }
