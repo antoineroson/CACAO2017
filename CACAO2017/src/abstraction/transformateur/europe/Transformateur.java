@@ -83,7 +83,7 @@ public class Transformateur implements ITransformateurMarcheDistrib, Acteur,ICon
 		this.stockChocolat=new Indicateur("3_TRAN_EU_stock_chocolat",this,this.s.getStockChocolat());
 		this.commande=new Indicateur("3_TRAN_EU_commande_actuelle",this,0.0);
 		this.tresorerie=new Indicateur("3_TRAN_EU_solde",this,this.compte.getCompte());
-		this.journal = new Journal("Journal de Transformateur Europe");
+		this.journal = new Journal("Transformateur Europe");
 		this.prixdevente=new Indicateur("3_TRAN_EU_prixdevente",this,0.0);
 		Monde.LE_MONDE.ajouterIndicateur( this.stockChocolat );
 		Monde.LE_MONDE.ajouterIndicateur( this.commande );
