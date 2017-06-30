@@ -36,7 +36,7 @@ public class MondeV1 extends Monde {
 		
 
 		
-		this.ajouterActeur(AgentPT);
+		
 		
 		MarcheProd Marche = new MarcheProd();
 		Marche.addProducteur(pAmeriqueLatine);
@@ -63,6 +63,9 @@ public class MondeV1 extends Monde {
 		AgentPT.addProd(p2);
 		AgentPT.addTrans(t1);
 		AgentPT.addTrans(t2);
+		
+		this.ajouterActeur(AgentDT);
+		this.ajouterActeur(AgentPT);
 		
 		Marche MarcheDT = new Marche();
 		MarcheDT.getDistrib().add(d1);
